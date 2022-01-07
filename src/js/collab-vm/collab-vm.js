@@ -1074,7 +1074,7 @@ function InitalizeGuacamoleClient() {
 }
 
 window.multicollab = function(ip) {
-	var connTunnel = new Guacamole.WebSocketTunnel('ws://' + ip + '/');
+	var connTunnel = new Guacamole.WebSocketTunnel(`${window.location.protocol.replace('http', 'ws')}//` + ip);
 	
 	connTunnel.onstatechange = function(code) {
 		if (code == 2) {
@@ -1157,7 +1157,7 @@ window.multicollab = function(ip) {
 							display.removeChild(display.firstChild);
 						
 					// set up the tunnel for InitalizeGuacamoleClient
-					tunnel = new Guacamole.WebSocketTunnel('ws://' + node.ip + '/');
+					tunnel = new Guacamole.WebSocketTunnel(`${window.location.protocol.replace('http', 'ws')}//` + node.ip);
 					vmName = node.url;
 					common.serverAddress = node.ip;
 					
@@ -1468,7 +1468,7 @@ $(function() {
 		return;
 	
 	// Instantiate client, using a websocket tunnel for communications.
-	tunnel = new Guacamole.WebSocketTunnel("ws://" + common.serverAddress + "/");
+	tunnel = new Guacamole.WebSocketTunnel(`${window.location.protocol.replace('http', 'ws')}//` + common.serverAddress);
 	
 	// Disable receive timeouts for debugging
 	if (common.DEBUG_NO_TIMEOUT)

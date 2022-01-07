@@ -1,6 +1,6 @@
 // CollabVM webapp configuration
 
-const root="/collab-vm/";
+const root="/";
 
 export default {
 	DEBUG: false,
@@ -29,7 +29,7 @@ export default {
 	 * The main node this webapp is configured to connect to.
 	 * @const
 	 */
-	serverAddress: window.location.host,
+	serverAddress: window.location.host + '/ws',
 
 	/**
 	 * Additional nodes to connect to.
